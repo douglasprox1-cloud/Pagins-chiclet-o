@@ -18,6 +18,7 @@ const SocialProof: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [currentBuyer, setCurrentBuyer] = useState(buyers[0]);
   const [hasStarted, setHasStarted] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Function to show notification
@@ -76,16 +77,19 @@ const SocialProof: React.FC = () => {
     >
       <div className="bg-white rounded-lg shadow-xl p-4 flex items-center gap-3 border border-slate-100 max-w-xs md:max-w-sm">
         <div className="flex-shrink-0 relative">
-          <img 
-            src="/chicletao.webp" 
-            alt="Product" 
-            className="w-12 h-12 rounded-full object-cover bg-slate-100"
-            onError={(e) => {
-               // Fallback icon if image fails
-               e.currentTarget.style.display = 'none';
-               e.currentTarget.parentElement!.innerHTML = '<div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>';
-            }}
-          />
+          {!imageError ? (
+            <img 
+              src="/chicletao.webp" 
+              alt="Product" 
+              className="w-12 h-12 rounded-full object-cover bg-slate-100"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+              <CheckCircle size={20} />
+            </div>
+          )}
+          
           <div className="absolute -bottom-1 -right-1 bg-green-500 text-white rounded-full p-0.5 border-2 border-white">
             <CheckCircle size={10} strokeWidth={3} />
           </div>

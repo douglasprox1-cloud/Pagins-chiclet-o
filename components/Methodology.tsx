@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from './Section';
-import { BookOpen, Video, Target, UserCheck } from 'lucide-react';
+import { BookOpen, Video, Target } from 'lucide-react';
 
 const Methodology: React.FC = () => {
   const steps = [
@@ -44,20 +44,23 @@ const Methodology: React.FC = () => {
 
       <div className="grid md:grid-cols-3 gap-8">
         {steps.map((step) => (
-          <div key={step.id} className="relative group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl transition-all duration-300">
-            <div className={`w-14 h-14 rounded-xl ${step.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+          <div key={step.id} className="relative group p-8 rounded-2xl bg-gray-50 hover:bg-white border border-gray-100 hover:border-blue-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div className={`w-14 h-14 rounded-xl ${step.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform relative z-10`}>
               <step.icon size={28} />
             </div>
             
-            <div className="absolute top-8 right-8 text-6xl font-black text-gray-100 -z-10 select-none">
+            {/* Background Number - Fixed Visibility */}
+            <div className="absolute top-4 right-4 text-7xl font-black text-gray-200 pointer-events-none select-none z-0 opacity-50 group-hover:opacity-30 transition-opacity">
               {step.id}
             </div>
 
-            <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
-            <h4 className="text-sm font-semibold text-blue-600 mb-4">{step.subtitle}</h4>
-            <p className="text-slate-600 leading-relaxed">
-              {step.description}
-            </p>
+            <div className="relative z-10">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{step.title}</h3>
+              <h4 className="text-sm font-semibold text-blue-600 mb-4">{step.subtitle}</h4>
+              <p className="text-slate-600 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>

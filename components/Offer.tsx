@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Section from './Section';
 import Button from './Button';
 import { Check, ShieldCheck, Lock } from 'lucide-react';
 
 const Offer: React.FC = () => {
+  const [imgError, setImgError] = useState(false);
+  
   const handleBuy = () => {
     window.open('https://go.hotmart.com/O103168055L', '_blank');
   };
@@ -14,17 +16,16 @@ const Offer: React.FC = () => {
         <div className="md:flex">
           <div className="md:w-1/2 p-8 md:p-12 bg-slate-50 flex flex-col justify-center relative overflow-hidden">
             {/* Mascot Image */}
-            <div className="mb-6 flex justify-center md:justify-start">
-               <img 
-                 src="/chicletao.webp" 
-                 alt="Mascote Método Chicletão" 
-                 className="w-48 rounded-xl shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300"
-                 onError={(e) => {
-                   // Fallback if image is missing
-                   e.currentTarget.style.display = 'none';
-                 }}
-               />
-            </div>
+            {!imgError && (
+              <div className="mb-6 flex justify-center md:justify-start">
+                 <img 
+                   src="/chicletao.webp" 
+                   alt="Mascote Método Chicletão" 
+                   className="w-48 rounded-xl shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300"
+                   onError={() => setImgError(true)}
+                 />
+              </div>
+            )}
 
             <h3 className="text-sm font-bold text-blue-600 uppercase tracking-wide mb-2">Oferta Especial</h3>
             <h2 className="text-3xl font-extrabold text-slate-900 mb-6">

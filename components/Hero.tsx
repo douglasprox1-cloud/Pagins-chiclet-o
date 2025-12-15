@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import Button from './Button';
 
 const Hero: React.FC = () => {
+  const [logoError, setLogoError] = useState(false);
+  const [mascotError, setMascotError] = useState(false);
+
   const handleCta = () => {
     window.open('https://go.hotmart.com/O103168055L', '_blank');
   };
@@ -17,16 +20,16 @@ const Hero: React.FC = () => {
           
           <div className="space-y-8 relative z-10">
             {/* Logo Product */}
-            <div className="mb-4">
-              <img 
-                src="/chicletao.webp" 
-                alt="Logo Método Chicletão" 
-                className="h-32 md:h-40 object-contain drop-shadow-2xl"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </div>
+            {!logoError && (
+              <div className="mb-4">
+                <img 
+                  src="/chicletao.webp" 
+                  alt="Logo Método Chicletão" 
+                  className="h-32 md:h-40 object-contain drop-shadow-2xl"
+                  onError={() => setLogoError(true)}
+                />
+              </div>
+            )}
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
               Radiologia é o <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Poder</span>
@@ -61,14 +64,16 @@ const Hero: React.FC = () => {
 
           <div className="relative z-10">
              {/* Mascot Image Positioned relative to video */}
-             <div className="hidden md:block absolute -top-24 -right-12 z-20 w-40 animate-bounce-slow">
-                <img 
-                  src="/chicletao.webp" 
-                  alt="Mascote No Prob Llama" 
-                  className="w-full rounded-xl shadow-2xl border-4 border-white/10 transform rotate-12"
-                  onError={(e) => e.currentTarget.style.display = 'none'}
-                />
-             </div>
+             {!mascotError && (
+               <div className="hidden md:block absolute -top-24 -right-12 z-20 w-40 animate-bounce-slow">
+                  <img 
+                    src="/chicletao.webp" 
+                    alt="Mascote No Prob Llama" 
+                    className="w-full rounded-xl shadow-2xl border-4 border-white/10 transform rotate-12"
+                    onError={() => setMascotError(true)}
+                  />
+               </div>
+             )}
 
              {/* Main Sales Video Embed */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 aspect-video group">

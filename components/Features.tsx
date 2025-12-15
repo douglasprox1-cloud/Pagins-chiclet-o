@@ -68,9 +68,10 @@ const Features: React.FC = () => {
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-black aspect-video group">
             <iframe 
               className="w-full h-full absolute inset-0"
-              src="https://www.youtube.com/embed/fjYL8LQgVyU?rel=0" 
+              src="https://www.youtube.com/embed/EngW7tLk6R8?rel=0" 
               title="Demonstração da Plataforma" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
             ></iframe>
             <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">

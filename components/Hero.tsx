@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 aspect-video group">
               <iframe 
                 className="w-full h-full absolute inset-0"
-                src="https://www.youtube.com/embed/amWt8Tm_Ens?rel=0" 
+                src="https://www.youtube.com/embed/EngW7tLk6R8?rel=0" 
                 title="Método Chicletão - Vídeo de Apresentação" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin"

@@ -6,6 +6,7 @@ import Offer from './components/Offer';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import SocialProof from './components/SocialProof';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Testimonials />
       <FAQ />
       <Footer />
+      <SocialProof />
     </div>
   );
 }

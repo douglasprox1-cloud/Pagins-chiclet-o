@@ -3,8 +3,8 @@ import { CheckCircle2 } from 'lucide-react';
 import Button from './Button';
 
 const Hero: React.FC = () => {
-  const scrollToOffer = () => {
-    document.getElementById('offer')?.scrollIntoView({ behavior: 'smooth' });
+  const handleCta = () => {
+    window.open('https://go.hotmart.com/O103168055L', '_blank');
   };
 
   return (
@@ -16,8 +16,16 @@ const Hero: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           
           <div className="space-y-8 relative z-10">
-            <div className="inline-block px-4 py-1 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-300 text-sm font-semibold tracking-wide uppercase">
-              Método Chicletão
+            {/* Logo Product */}
+            <div className="mb-4">
+              <img 
+                src="/chicletao.webp" 
+                alt="Logo Método Chicletão" 
+                className="h-32 md:h-40 object-contain drop-shadow-2xl"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
@@ -29,18 +37,10 @@ const Hero: React.FC = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button onClick={scrollToOffer} className="group">
+              <Button onClick={handleCta} className="group">
                 Quero Acesso Vitalício
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Button>
-              <a 
-                href="https://www.radiologiaeopoder.com/pratica" 
-                target="_blank" 
-                rel="noreferrer"
-                className="flex items-center justify-center px-8 py-4 rounded-full border border-slate-700 text-slate-300 hover:bg-slate-800 transition-colors font-semibold"
-              >
-                Testar Gratuitamente
-              </a>
             </div>
 
             <div className="flex items-center gap-4 text-sm text-slate-400">
@@ -63,18 +63,18 @@ const Hero: React.FC = () => {
              {/* Mascot Image Positioned relative to video */}
              <div className="hidden md:block absolute -top-24 -right-12 z-20 w-40 animate-bounce-slow">
                 <img 
-                  src="/chicletao.jpg" 
+                  src="/chicletao.webp" 
                   alt="Mascote No Prob Llama" 
                   className="w-full rounded-xl shadow-2xl border-4 border-white/10 transform rotate-12"
                   onError={(e) => e.currentTarget.style.display = 'none'}
                 />
              </div>
 
-             {/* YouTube Video Embed */}
+             {/* Main Sales Video Embed */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 aspect-video group">
               <iframe 
                 className="w-full h-full absolute inset-0"
-                src="https://www.youtube.com/embed/amWt8Tm_Ens" 
+                src="https://www.youtube.com/embed/amWt8Tm_Ens?rel=0" 
                 title="Método Chicletão - Vídeo de Apresentação" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin"

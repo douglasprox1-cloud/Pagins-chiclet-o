@@ -13,9 +13,9 @@ const Features: React.FC = () => {
 
   return (
     <Section className="bg-slate-50 border-y border-slate-200">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
         
-        <div>
+        <div className="lg:sticky lg:top-24">
           <h2 className="text-3xl font-extrabold text-slate-900 mb-6">
             O que você vai encontrar na plataforma?
           </h2>
@@ -63,23 +63,40 @@ const Features: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-slate-900 text-white rounded-2xl p-8 lg:p-12 relative overflow-hidden">
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold mb-6">Atlas Digital Completo</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="flex items-center justify-between border-b border-slate-700 pb-2">
-                  <span className="text-slate-300">{stat.label}</span>
-                  <span className="font-bold text-blue-400 text-xl">{stat.count}</span>
-                </div>
-              ))}
-            </div>
-            <div className="mt-8 pt-6 border-t border-slate-700 text-center">
-              <p className="text-slate-300 italic mb-4">"Nós adicionamos novos conteúdos frequentemente sem custo adicional."</p>
+        <div className="flex flex-col gap-6">
+          {/* Product Demo Video */}
+          <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-black aspect-video group">
+            <iframe 
+              className="w-full h-full absolute inset-0"
+              src="https://www.youtube.com/embed/fjYL8LQgVyU?rel=0" 
+              title="Demonstração da Plataforma" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+            <div className="absolute top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+              Veja por dentro
             </div>
           </div>
-          {/* Decor element */}
-          <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20"></div>
+          
+          {/* Stats Card */}
+          <div className="bg-slate-900 text-white rounded-2xl p-8 lg:p-12 relative overflow-hidden shadow-xl">
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-6">Atlas Digital Completo</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {stats.map((stat, idx) => (
+                  <div key={idx} className="flex items-center justify-between border-b border-slate-700 pb-2">
+                    <span className="text-slate-300 text-sm">{stat.label}</span>
+                    <span className="font-bold text-blue-400 text-lg">{stat.count}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 pt-6 border-t border-slate-700 text-center">
+                <p className="text-slate-300 italic text-sm">"Nós adicionamos novos conteúdos frequentemente sem custo adicional."</p>
+              </div>
+            </div>
+            {/* Decor element */}
+            <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20"></div>
+          </div>
         </div>
 
       </div>

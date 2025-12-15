@@ -4,15 +4,19 @@ import Button from './Button';
 import { Check, ShieldCheck, Lock } from 'lucide-react';
 
 const Offer: React.FC = () => {
+  const handleBuy = () => {
+    window.open('https://go.hotmart.com/O103168055L', '_blank');
+  };
+
   return (
     <div id="offer" className="bg-blue-600 py-20 px-4">
       <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden">
         <div className="md:flex">
           <div className="md:w-1/2 p-8 md:p-12 bg-slate-50 flex flex-col justify-center relative overflow-hidden">
-            {/* Mascot Image - Ensure you have chicletao.jpg in your public folder */}
+            {/* Mascot Image */}
             <div className="mb-6 flex justify-center md:justify-start">
                <img 
-                 src="/chicletao.jpg" 
+                 src="/chicletao.webp" 
                  alt="Mascote Método Chicletão" 
                  className="w-48 rounded-xl shadow-lg transform -rotate-2 hover:rotate-0 transition-transform duration-300"
                  onError={(e) => {
@@ -45,12 +49,15 @@ const Offer: React.FC = () => {
           
           <div className="md:w-1/2 p-8 md:p-12 bg-slate-900 text-white flex flex-col justify-center items-center text-center">
             <div className="mb-6">
-              <span className="text-slate-400 text-sm line-through block">De: Assinatura Anual</span>
-              <div className="text-5xl font-extrabold text-white mt-2 mb-1">Vitalício</div>
-              <span className="text-blue-300 text-sm">Pagamento único</span>
+              <span className="text-slate-400 text-sm font-medium block">De <span className="line-through">R$297</span> por apenas</span>
+              <div className="text-4xl lg:text-5xl font-extrabold text-white mt-2 mb-1">
+                <span className="text-2xl align-top">12x</span> R$ 10,03<span className="text-xl align-top">*</span>
+              </div>
+              <span className="text-blue-300 text-sm font-medium">no cartão</span>
+              <p className="text-slate-500 text-xs mt-2">ou R$ 97,00 à vista</p>
             </div>
             
-            <Button fullWidth className="animate-pulse mb-4">
+            <Button fullWidth className="animate-pulse mb-4" onClick={handleBuy}>
               Comprar Agora
             </Button>
             
